@@ -12,6 +12,22 @@
     <![endif]-->
     <script type="text/javascript" src="js/functions.js"></script>
 </head>
+<script>
+    $(document).ready(function(){
+        startnow();
+    });
+    function changeimage(){
+        x = ( x === imgs.length - 1) ? 0 : x+1;
+        document.getElementById("sm").src = imgs[x];
+    }
+    function startnow(){
+        setInterval(changeimage,3000);
+    }
+    var imgs =[] ,x = -1;
+    imgs[0] ="{{ asset('/img/book1.jpg') }}";
+    imgs[1] ="{{ asset('/img/book2.jpg') }}";
+    imgs[2] ="{{ asset('/img/book1.jpg') }}";
+</script>
 <body>
 <!-- Header -->
 <div id="header" class="shell">
@@ -95,11 +111,9 @@
             <li>
                 <h4>Sách mới</h4>
                 <ul>
-                    <li><a href="#">Sách giáo dục</a></li>
-                    <li><a href="#">Giáo trình</a></li>
-                    <li><a href="#">Từ điển chuyên ngành</a></li>
-                    <li><a href="#">Sách tham khảo HSSV</a></li>
-                    <li><a href="#">Ấn phẩm khác</a></li>
+                    <div style="width: 80%;height: 250px;background-color: blue">
+                        <img id="sm" src="{{ asset('/img/book1.jpg') }}" style="width: 100%;height: 100%">
+                    </div>
                 </ul>
             </li>
             <li>
